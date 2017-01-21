@@ -5,7 +5,13 @@
 jQuery(document).ready(function() {
 
 	var alertdiv = $("#form-alert");
-	alertdiv.hide();
+	var text = $.trim(alertdiv.text());
+	if(text == ""){
+		alertdiv.hide();
+	}else{
+		alertdiv.show();
+	}
+	
 
 
 	/*
