@@ -2,93 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f65e804c-dfbc-4a0a-94ea-23b677177fa4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/BaseController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/ConcernController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/CourseController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/RoleController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/TaskController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/ConcernDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/CourseDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/dao/TaskDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/Concern.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/ConcernPK.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/Course.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/Selectc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/SelectcPK.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/Task.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/ConcernService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/CourseService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/RoleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/TaskService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/impl/ConcernServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/impl/CourseServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/impl/RoleServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/impl/TaskServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/impl/UserServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/CourseAbstract.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/CourseDetail.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/GenerateCode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/Names.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/Redirect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/RoleAbstract.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/ServiceInvocation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/util/SessionUserInterceptor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/adminlte/js/list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/myjs/myjs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/addclass.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/addtask.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/contentexample.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/coursedetail.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/courselist.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/otherprofile.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/rolelist.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/pages/searchcourse.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/util/ErrMsg.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/RoleDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/RoleDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entity/Role.java" afterPath="$PROJECT_DIR$/src/main/java/entity/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/UI/buttons.html" afterPath="$PROJECT_DIR$/web/pages/UI/buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/UI/general.html" afterPath="$PROJECT_DIR$/web/pages/UI/general.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/UI/icons.html" afterPath="$PROJECT_DIR$/web/pages/UI/icons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/UI/modals.html" afterPath="$PROJECT_DIR$/web/pages/UI/modals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/UI/sliders.html" afterPath="$PROJECT_DIR$/web/pages/UI/sliders.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/calendar.html" afterPath="$PROJECT_DIR$/web/pages/calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/charts/chartjs.html" afterPath="$PROJECT_DIR$/web/pages/charts/chartjs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/charts/flot.html" afterPath="$PROJECT_DIR$/web/pages/charts/flot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/charts/inline.html" afterPath="$PROJECT_DIR$/web/pages/charts/inline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/charts/morris.html" afterPath="$PROJECT_DIR$/web/pages/charts/morris.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/examples/500.html" afterPath="$PROJECT_DIR$/web/pages/examples/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/examples/blank.html" afterPath="$PROJECT_DIR$/web/pages/examples/blank.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/examples/invoice.html" afterPath="$PROJECT_DIR$/web/pages/examples/invoice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/examples/pace.html" afterPath="$PROJECT_DIR$/web/pages/examples/pace.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/forms/advanced.html" afterPath="$PROJECT_DIR$/web/pages/forms/advanced.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/forms/editors.html" afterPath="$PROJECT_DIR$/web/pages/forms/editors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/forms/general.html" afterPath="$PROJECT_DIR$/web/pages/forms/general.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/home.jsp" afterPath="$PROJECT_DIR$/web/pages/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/layout/boxed.html" afterPath="$PROJECT_DIR$/web/pages/layout/boxed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/layout/collapsed-sidebar.html" afterPath="$PROJECT_DIR$/web/pages/layout/collapsed-sidebar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/layout/fixed.html" afterPath="$PROJECT_DIR$/web/pages/layout/fixed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/mailbox/compose.html" afterPath="$PROJECT_DIR$/web/pages/mailbox/compose.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/mailbox/mailbox.html" afterPath="$PROJECT_DIR$/web/pages/mailbox/mailbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/mailbox/read-mail.html" afterPath="$PROJECT_DIR$/web/pages/mailbox/read-mail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/tables/simple.html" afterPath="$PROJECT_DIR$/web/pages/tables/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/widgets.html" afterPath="$PROJECT_DIR$/web/pages/widgets.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/register.jsp" afterPath="$PROJECT_DIR$/web/register.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/pages/UI/timeline.html" afterPath="$PROJECT_DIR$/web/pages/timeline.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/pages/examples/404.html" afterPath="$PROJECT_DIR$/web/pages/404.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/pages/examples/profile.jsp" afterPath="$PROJECT_DIR$/web/pages/myprofile.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/pages/tables/data.html" afterPath="$PROJECT_DIR$/web/pages/data.html" />
     </list>
     <ignored path="CourseManageOnline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1012,7 +927,7 @@
       <workItem from="1484993139655" duration="71568000" />
       <workItem from="1485237070571" duration="36305000" />
       <workItem from="1485325589637" duration="19998000" />
-      <workItem from="1485415146869" duration="1017000" />
+      <workItem from="1485415146869" duration="1232000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1484454231260</created>
@@ -1035,11 +950,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484989182431</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1.26 task /add edit delete">
+      <created>1485416347345</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1485416347345</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217142000" />
+    <option name="totallyTimeSpent" value="217357000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1056,19 +978,20 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3726977" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49573562" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16151386" sideWeight="0.49331105" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1913646" sideWeight="0.5250404" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21055438" sideWeight="0.6930533" order="0" side_tool="false" content_ui="combo" x="71" y="100" width="411" height="697" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21055438" sideWeight="0.6930533" order="0" side_tool="false" content_ui="combo" x="71" y="100" width="411" height="697" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20202559" sideWeight="0.3069467" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1083,7 +1006,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52244896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3726977" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16151386" sideWeight="0.50668895" order="7" side_tool="true" content_ui="tabs" />
@@ -1103,7 +1025,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="1.21 user profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.21 user profile" />
+    <MESSAGE value="1.26 task /add edit delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.26 task /add edit delete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1209,6 +1132,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1224,6 +1148,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,6 +1172,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1262,6 +1188,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,6 +1196,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1276,6 +1204,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1294,6 +1223,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,6 +1231,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,6 +1239,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,6 +1247,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="e#1015#1016#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1322,6 +1257,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19">
           <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,6 +1281,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="56" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,6 +1308,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-342">
           <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,6 +1334,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
