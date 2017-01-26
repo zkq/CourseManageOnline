@@ -1,13 +1,16 @@
 package controller;
 
-import entity.Role;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import service.ConcernService;
 import service.UserService;
-import util.ErrMsg;
+import util.ServiceInvocation;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,41 +24,55 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    ConcernService concernService;
+
+    UserService userServiceProxy;
+    ConcernService concernServiceProxy;
+
+    private void initProxy() {
+        if (userServiceProxy == null) {
+            userServiceProxy = (UserService) new ServiceInvocation(userService).getProxy();
+        }
+        if (concernServiceProxy == null) {
+            concernServiceProxy = (ConcernService) new ServiceInvocation(concernService).getProxy();
+        }
+    }
 
     @RequestMapping(path = "/login.do", method = RequestMethod.POST)
-    public String login(ModelMap model, User user, HttpSession session){
-        //用户检查
-        ErrMsg msg = userService.checkUser(user, session);
-        if(msg != null){
-            model.addAttribute("errMsg", msg.errMsg);
+    public String login(ModelMap model, User user, HttpSession session) {
+        initProxy();
+        //用户检查 添加user role到session
+        boolean b1 = userServiceProxy.checkUser(user, session, model);
+        if (!b1) {
+            return "forward:/index.jsp";
+        }
+        //添加关注到session
+        boolean b2 = concernServiceProxy.getConcernCnt(session, model);
+        if (!b2) {
             return "forward:/index.jsp";
         }
         return "redirect:/pages/home.jsp";
     }
 
+    @RequestMapping(path = "/logout.do")
+    public String logout(ModelMap model, HttpSession session) {
+        initProxy();
+        //用户注销
+        session.invalidate();
+        return "redirect:/index.jsp";
+    }
+
 
     @RequestMapping(path = "/register.do", method = RequestMethod.POST)
-    public String register(ModelMap model, @ModelAttribute User user, @RequestParam String type){
-        ErrMsg msg = userService.registerUser(user, type);
-
-        if(msg != null){
-            model.addAttribute("errMsg", msg.errMsg);
+    public String register(ModelMap model, @ModelAttribute User user, @RequestParam String type) {
+        initProxy();
+        boolean b = userServiceProxy.registerUser(model, user, type);
+        if (!b) {
             return "forward:/register.jsp";
         }
-
         model.addAttribute("errMsg", "恭喜您，注册成功");
         return "forward:/index.jsp";
     }
 
-    @RequestMapping(path = "/updaterole.do", method = RequestMethod.POST)
-    @ResponseBody
-    public String updateRole(ModelMap model, Role role, HttpSession session){
-        ErrMsg msg = userService.updateRole(role, session);
-
-        if(msg != null){
-            return msg.errMsg;
-        }
-        session.setAttribute("role", role);
-        return "修改成功";
-    }
 }

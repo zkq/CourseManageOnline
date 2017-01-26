@@ -71,8 +71,9 @@
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="password" placeholder="密码..." class="form-password form-control" id="form-password">
+			                        	<input type="password" name="password" placeholder="密码..." class="form-password form-control" id="form-password" value="111111">
 			                        </div>
+                                    <input type="hidden" value="go" name="dest">
                                     <div id="form-alert" class="alert alert-info">
                                         ${errMsg}
                                     </div>

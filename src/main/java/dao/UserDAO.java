@@ -32,10 +32,16 @@ public class UserDAO extends BaseDAO {
 
 
 
-
-
     public User getByName(String name){
         List<User> list = getByProperty("username", name);
+        if(list.isEmpty())
+            return null;
+        else
+            return list.get(0);
+    }
+
+    public User getByRoleid(String id){
+        List<User> list = getByProperty("roleid", id);
         if(list.isEmpty())
             return null;
         else

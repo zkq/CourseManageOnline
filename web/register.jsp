@@ -85,6 +85,7 @@
                                 <label class="sr-only" for="form-password2">确认密码</label>
                                 <input type="password" name="password2" placeholder="确认密码..." class="form-password form-control" id="form-password2">
                             </div>
+                            <input type="hidden" value="go" name="dest">
                             <div id="form-alert" class="alert alert-info">
                                 ${errMsg}
                             </div>

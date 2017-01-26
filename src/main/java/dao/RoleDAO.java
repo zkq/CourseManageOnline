@@ -1,14 +1,11 @@
 package dao;
 
 import entity.Role;
-import entity.Role;
-import entity.User;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import util.RoleAbstract;
 
 import java.util.List;
 
@@ -27,6 +24,18 @@ public class RoleDAO extends BaseDAO {
     public void update(Role role){
         initSession();
         session.update(role);
+    }
+
+
+    public List<RoleAbstract> search(String name, String myid){
+        initSession();
+
+        String hql = "select new util.RoleAbstract(name, roleid) from Role role " +
+                "where role.roleid != :myid and role.name like :name";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", "%" + name + "%");
+        query.setParameter("myid", myid);
+        return query.list();
     }
 
 

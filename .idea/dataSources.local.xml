@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL1 - cmol@localhost" uuid="bed49513-e557-4108-99be-b03edf3cfa0a">
+    <data-source name="MySQL1 - cmol@localhost" uuid="9e8bcb0e-0449-47ce-98b3-bcedc5a1b1a1">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-pattern>cmol.*</schema-pattern>
