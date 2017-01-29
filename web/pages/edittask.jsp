@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>开设课程</title>
+    <title>编辑作业</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -38,11 +38,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                开设课程
+                ${title}作业
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
-                <li class="active">开设课程</li>
+                <li>我的课程</li>
+                <li>${coursename}</li>
+                <li class="active">${title}作业</li>
             </ol>
         </section>
 
@@ -55,54 +57,41 @@
 
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">填写课程信息</h3>
+                            <h3 class="box-title">作业信息</h3>
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="/course/add.do">
+                        <form role="form" method="post" action="/task/add.do">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="name">课程名称</label>
-                                    <input type="text" class="form-control" id="name" name="name">
+                                    <label for="title">作业标题</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="${task.title}">
+                                    <input type="hidden" name="cid" value="${cid}">
+                                    <input type="hidden" name="taskid" value="${task.taskid}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="type">课程类型</label>
-                                    <input type="text" class="form-control" id="type" name="type">
-                                </div>
-                                <div class="form-group">
-                                    <label for="classdate">开课-结课日期:</label>
+                                    <label for="datepick">作业提交截止日期:</label>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control pull-right" id="classdate"
-                                               name="classdate">
+                                        <input type="text" class="form-control pull-right" id="datepick"
+                                               name="endtime" value='<fmt:formatDate value="${task.endtime}" pattern="MM/dd/yyyy"/>'>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
                                 <div class="form-group">
-                                    <label>加入截止时间:</label>
-
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right" id="joinendtime"
-                                               name="joinendtime">
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="type">课程介绍</label>
-                                    <textarea type="" class="form-control" id="introduction"
-                                              name="introduction"></textarea>
+                                    <label for="requirement">作业要求</label>
+                                    <textarea type="" class="form-control" id="requirement"
+                                              name="requirement">
+                                    </textarea>
                                 </div>
                             </div>
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false, true)'>提交
+                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false, false)'>提交
                                 </button>
                                 <button type="reset" class="btn btn-danger">重置</button>
                             </div>
@@ -142,11 +131,13 @@
 
 <script>
     //Date picker
-    $('#joinendtime').datepicker({
+    $('#datepick').datepicker({
         autoclose: true
     });
     //Date range picker
     $('#classdate').daterangepicker();
+
+    $("#requirement").val("${task.requirement}");
 
 
 </script>

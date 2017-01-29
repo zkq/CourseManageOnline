@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>编辑作业</title>
+    <title>编辑作品</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -23,6 +23,32 @@
     <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
     <!-- bootstrap datepicker -->
     <link rel="stylesheet" href="/plugins/datepicker/datepicker3.css">
+<style>
+    .progress {
+        position: relative;
+        margin-left: 0px;
+        margin-top: 0px;
+        width: 200px;
+        padding: 1px;
+        border-radius: 3px;
+        display: none
+    }
+    .bar {
+        background-color: green;
+        display: block;
+        width: 0%;
+        height: 20px;
+        border-radius: 3px;
+    }
+    .percent {
+        position: absolute;
+        height: 20px;
+        display: inline-block;
+        top: 3px;
+        left: 2%;
+        color: #fff
+    }
+</style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,13 +64,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                ${title}作业
+                ${title}作品
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
                 <li>我的课程</li>
                 <li>${coursename}</li>
-                <li class="active">${title}作业</li>
+                <li class="active">${title}作品</li>
             </ol>
         </section>
 
@@ -57,43 +83,38 @@
 
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">作业信息</h3>
+                            <h3 class="box-title">编辑作品</h3>
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="/task/add.do">
+                        <form role="form" method="post" action="/work/add.do" enctype="multipart/form-data">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="title">作业标题</label>
-                                    <input type="text" class="form-control" id="title" name="title" value="${task.title}">
-                                    <input type="hidden" name="cid" value="${cid}">
-                                    <input type="hidden" name="taskid" value="${task.taskid}">
+                                    <label for="title">标题</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="${work.title}">
+                                    <input type="hidden" name="taskid" value="${taskid}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="datepick">作业提交截止日期:</label>
-
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right" id="datepick"
-                                               name="endtime" value='<fmt:formatDate value="${task.endtime}" pattern="MM/dd/yyyy"/>'>
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="requirement">作业要求</label>
-                                    <textarea type="" class="form-control" id="requirement"
-                                              name="requirement">
+                                    <label for="explain">内容（可选）</label>
+                                    <textarea type="" class="form-control" id="explain"
+                                              name="explain">
                                     </textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="attachment">附件（可选）</label>
+                                    <input type="file" id="attachment" name="file">
+                                </div>
+                                <div class="progress">
+                                    <span class="bar"></span><span class="percent">0%</span >
+                                </div>
+
                             </div>
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false)'>提交
+                                <button type="button" class="btn btn-primary" id="submitbtn" onclick="ajaxfile(this, false)">提交
                                 </button>
-                                <button type="reset" class="btn btn-danger">重置</button>
+                                <button type="reset" class="btn btn-danger" id="resetbtn">重置</button>
                             </div>
                         </form>
                     </div>
@@ -127,19 +148,11 @@
 <!-- date-range-picker -->
 <script src="/plugins/daterangepicker/moment.min.js"></script>
 <script src="/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/plugins/jquery-form/jquery.form.js"></script>
 <script src="/myjs/myjs.js"></script>
 
 <script>
-    //Date picker
-    $('#datepick').datepicker({
-        autoclose: true
-    });
-    //Date range picker
-    $('#classdate').daterangepicker();
-
-    $("#requirement").val("${task.requirement}");
-
-
+    $("#explain").val("${work.explain}");
 </script>
 </body>
 </html>

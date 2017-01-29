@@ -11,6 +11,8 @@ public interface TaskService {
 
     boolean delete(ModelMap model, String id);
 
+    boolean getWorkList(ModelMap model, String id);
+
     boolean newEdit(ModelMap model, String cid);
 
     boolean oldEdit(ModelMap model, String id);

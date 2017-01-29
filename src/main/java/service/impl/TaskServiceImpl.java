@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import service.TaskService;
 import util.Names;
+import util.WorkAbstract;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     CourseDAO courseDAO;
 
-    public void addErrMsg(ModelMap model, String msg){
+    public void addErrMsg(ModelMap model, String msg) {
         model.addAttribute(Names.ERR_TAG, msg);
     }
 
@@ -38,7 +39,7 @@ public class TaskServiceImpl implements TaskService {
 
     public boolean delete(ModelMap model, String id) {
         Task task = taskDAO.getById(id);
-        if(task == null){
+        if (task == null) {
             addErrMsg(model, "作业不存在");
             return false;
         }
@@ -46,10 +47,9 @@ public class TaskServiceImpl implements TaskService {
         return true;
     }
 
-
     public boolean newEdit(ModelMap model, String cid) {
         Course course = courseDAO.getById(cid);
-        if(course == null){
+        if (course == null) {
             addErrMsg(model, "课程不存在");
             return false;
         }
@@ -60,13 +60,14 @@ public class TaskServiceImpl implements TaskService {
     }
 
     public boolean oldEdit(ModelMap model, String id) {
+
         Task task = taskDAO.getById(id);
-        if(task == null){
+        if (task == null) {
             addErrMsg(model, "作业不存在");
             return false;
         }
         Course course = courseDAO.getById(task.getCid());
-        if(course == null){
+        if (course == null) {
             addErrMsg(model, "课程不存在");
             return false;
         }
@@ -79,6 +80,13 @@ public class TaskServiceImpl implements TaskService {
 
     public boolean add(ModelMap model, Task task) {
         taskDAO.addOrUpdate(task);
+        return true;
+    }
+
+    public boolean getWorkList(ModelMap model, String id) {
+        List<WorkAbstract> works = taskDAO.getAllWork(id);
+        model.addAttribute("works", works);
+        model.addAttribute("taskid", id);
         return true;
     }
 

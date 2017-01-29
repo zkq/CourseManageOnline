@@ -67,7 +67,7 @@
                                         退出课程
                                     </button>
                                     <button class="btn btn-primary btn-block"
-                                            onclick='ajaxurl("/source/add.do?id=${courseDetail.cid}", false, false)'>
+                                            onclick='window.open("/resource/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
                                         分享资源
                                     </button>
                                 </c:if>
@@ -87,7 +87,7 @@
                                     发布作业
                                 </button>
                                 <button class="btn btn-primary btn-block"
-                                        onclick='ajaxurl("/source/add.do?id=${courseDetail.cid}", false, false)'>
+                                        onclick='window.open("/resource/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
                                     分享资源
                                 </button>
                             </c:if>
@@ -131,7 +131,7 @@
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#task" data-toggle="tab">作业</a></li>
-                            <li><a href="#settings" data-toggle="tab">资源</a></li>
+                            <li><a href="#resources" data-toggle="tab">资源</a></li>
                             <li><a href="#tiezi" data-toggle="tab">帖子</a></li>
                         </ul>
                         <div class="tab-content">
@@ -142,11 +142,18 @@
                                         <!-- small box -->
                                         <div class="small-box bg-green">
                                             <div class="inner">
-                                                <div style="font-size: 20px">作业${state.index + 1} &nbsp;${item.title}&nbsp;
-                                                    <c:if test="${type == 2}">
-                                                        <a href="/task/edithand.do?id=${item.taskid}"
+                                                <div style="font-size: 20px">作业${state.index + 1} &nbsp;
+                                                    <span style="color: yellow">${item.title}</span> &nbsp;
+                                                    <c:if test="${type == 2 && !donelist.contains(item.taskid)}">
+                                                        <a href="/work/newedit.do?taskid=${item.taskid}"
                                                            style="font-size: 20px">
                                                             <button class="btn btn-danger">提交作业</button>
+                                                        </a>
+                                                    </c:if>
+                                                    <c:if test="${type == 2 && donelist.contains(item.taskid)}">
+                                                        <a href="/work/oldedit.do?taskid=${item.taskid}"
+                                                           style="font-size: 20px">
+                                                            <button class="btn btn-danger">修改作业</button>
                                                         </a>
                                                     </c:if>
                                                     <c:if test="${type == 1}">
@@ -170,7 +177,7 @@
                                             <div class="icon">
                                                 <i class="ion ion-bookmark"></i>
                                             </div>
-                                            <a href="/task/detail.do?id=${item.taskid}" class="small-box-footer">
+                                            <a href="/task/worklist.do?id=${item.taskid}" class="small-box-footer">
                                                 查看所有提交 <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                         </div>
@@ -179,103 +186,37 @@
                             </div>
                             <!-- /.tab-pane -->
 
-                            <div class="tab-pane" id="settings">
-                                <form class="form-horizontal" id="form" method="post" action="/role/update.do">
-                                    <div class="form-group">
-                                        <label for="inputName" class="col-sm-2 control-label">真实姓名</label>
+                            <div class="tab-pane" id="resources">
+                                <c:forEach var="item2" items="${resources}" varStatus="state2">
+                                    <div>
+                                        <div class="small-box bg-yellow">
+                                            <div class="inner">
+                                                <div style="font-size: 20px">
+                                                    资源${state2.index + 1} &nbsp;
+                                                    <a href="/resource/oldedit.do?rid=${item2.rid}"
+                                                       style="font-size: 20px">
+                                                        <button class="btn bg-red">修改</button>
+                                                    </a>
 
-                                        <div class="col-sm-10">
-                                            <input type="text" name="name" value="${role.name}" class="form-control"
-                                                   id="inputName">
+                                                        <span onclick='if(window.confirm("确认删除？"))ajaxurl("/resource/delete.do?id=${item2.rid}", true, false)'>
+                                                            <i class="ion ion-android-delete"></i>
+                                                        </span>
+                                                </div>
+                                                <div>
+                                                    <a href="/resource/download.do?resourcemd5=${item2.resourcemd5}&resourcename=${item2.resourcename}">${item2.resourcename}</a>
+                                                </div>
+                                                <div>
+                                                    创建时间<fmt:formatDate value="${item2.creattime}" type="both"/>
+                                                </div>
+                                                <br/>
+                                                <div style="font-size: 20px">${item2.introduction}</div>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="ion ion-bookmark"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputSex" class="col-sm-2 control-label">性别</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="sex" value="${role.sex}" class="form-control"
-                                                   id="inputSex" placeholder="男/女">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAge" class="col-sm-2 control-label">年龄</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="age" value="${role.age}" class="form-control"
-                                                   id="inputAge">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputEducation" class="col-sm-2 control-label">教育</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="education" value="${role.education}"
-                                                   class="form-control" id="inputEducation">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputNativePlace" class="col-sm-2 control-label">籍贯</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="nativeplace" value="${role.nativeplace}"
-                                                   class="form-control" id="inputNativePlace">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputContact" class="col-sm-2 control-label">联系方式</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="contact" value="${role.contact}"
-                                                   class="form-control" id="inputContact">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="email" value="${role.email}"
-                                                   class="form-control"
-                                                   id="inputEmail">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSchool" class="col-sm-2 control-label">学校</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="school" value="${role.school}"
-                                                   class="form-control"
-                                                   id="inputSchool">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputCollege" class="col-sm-2 control-label">学院</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="college" value="${role.college}"
-                                                   class="form-control" id="inputCollege">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputMajor" class="col-sm-2 control-label">专业</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" name="major" value="${role.major}"
-                                                   class="form-control"
-                                                   id="inputMajor">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="button"
-                                                    onclick='ajaxsubmit(this, "/pages/myprofile.jsp#aboutme")'
-                                                    class="btn btn-danger">提交
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </c:forEach>
                             </div>
                             <!-- /.tab-pane -->
 

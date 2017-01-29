@@ -2,13 +2,86 @@
  * Created by Flyme on 2017/1/23.
  */
 
-function ajaxsubmit(who, refreshparent) {
+function toggleProgress(show) {
+
+    var progress = $(".progress");
+    var submitbtn = $("#submitbtn");
+    var resetbtn = $("#resetbtn");
+    
+    if(show){
+        progress.show();
+        submitbtn.html("上传中...");
+        submitbtn.attr("disabled", true);
+        resetbtn.attr("disabled", true);
+    }else{
+        progress.hide();
+        submitbtn.html("提交");
+        submitbtn.attr("disabled", false);
+        resetbtn.attr("disabled", false);
+    }
+    
+}
+
+function ajaxfile(who, refreshparent, requirefile) {
+    //没有文件按照正常方式提交
+    if($("input[type='file']")[0].files.length == 0){
+        if(requirefile){
+            alert("请选择一个资源");
+            return;
+        }
+        ajaxsubmit(who, refreshparent, false);
+        return;
+    }
+    
+    var bar = $('.bar');
+    var percent = $('.percent');
+    
     var currentform = $(who.form);
-    $.ajax({
-        type: who.form.method,
-        url: who.form.action,
-        data: currentform.serialize(),
-        async: false,
+    currentform.ajaxSubmit({
+        resetForm : true,
+        
+        beforeSend: function(xhr) {
+            
+            var filesize = $("input[type='file']")[0].files[0].size/1024/1024;
+            if(filesize > 50){
+                alert("文件大小超过限制，最多50M");
+                xhr.abort();
+                return false;
+            }
+
+            toggleProgress(true);
+            var percentVal = '0%';
+            bar.width(percentVal);
+            percent.html(percentVal);
+        },
+
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal);
+            percent.html(percentVal);
+        },
+        error: function(data) {
+            alert("处理出错");
+            toggleProgress(false);
+            
+        },
+        success: function(data) {
+            if(data == "" || data == "ok"){
+                alert("操作成功");
+                if(refreshparent)
+                    window.open("/pages/home.jsp", "_parent");
+            }else{
+                alert(data);
+            }
+            toggleProgress(false);
+        }
+    });
+}
+
+function ajaxsubmit(who, refreshparent, resetform) {
+    var currentform = $(who.form);
+    currentform.ajaxSubmit({
+        resetForm : resetform,
         error: function(data) {
             alert("处理出错");
         },
@@ -17,14 +90,13 @@ function ajaxsubmit(who, refreshparent) {
                 alert("操作成功");
                 if(refreshparent)
                     window.open("/pages/home.jsp", "_parent");
-                else
-                    location.reload();
             }else{
                 alert(data);
             }
         }
     });
 }
+
 
 function ajaxurl(url, feedback, refreshparent) {
     $.ajax({

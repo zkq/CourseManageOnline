@@ -44,14 +44,14 @@ public class TaskController extends BaseController{
     public String  newedit(ModelMap model, HttpSession session, @RequestParam String cid){
         initProxy();
         taskServiceProxy.newEdit(model, cid);
-        return "addtask";
+        return "edittask";
     }
 
     @RequestMapping("/oldedit.do")
     public String oldedit(ModelMap model, HttpSession session, @RequestParam String id){
         initProxy();
         taskServiceProxy.oldEdit(model, id);
-        return "addtask";
+        return "edittask";
     }
 
     @RequestMapping("/add.do")
@@ -67,6 +67,13 @@ public class TaskController extends BaseController{
         task.setCreattime(new Date());
         task.setDeleted(false);
         return responseBodyWrite(taskServiceProxy.add(model, task), model);
+    }
+
+    @RequestMapping(path = "/worklist.do")
+    public String worklist(ModelMap model, HttpSession session, @RequestParam String id){
+        initProxy();
+        taskServiceProxy.getWorkList(model, id);
+        return "worklist";
     }
 
 }

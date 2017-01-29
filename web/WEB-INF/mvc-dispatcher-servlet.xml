@@ -27,6 +27,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="52428800"/><!--50M-->
+    </bean>
+
+
 
     <mvc:interceptors>
         <bean class="util.SessionUserInterceptor" />

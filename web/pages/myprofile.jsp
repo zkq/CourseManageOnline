@@ -221,7 +221,7 @@
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
                                             <button type="button"
-                                                    onclick='ajaxsubmit(this, "/pages/myprofile.jsp#aboutme")'
+                                                    onclick='ajaxsubmit(this, false, false)'
                                                     class="btn btn-danger">提交
                                             </button>
                                         </div>
@@ -255,6 +255,7 @@
 <script src="/adminlte/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/js/demo.js"></script>
+<script src="/plugins/jquery-form/jquery.form.js"></script>
 <script src="/myjs/myjs.js"></script>
 </body>
 </html>

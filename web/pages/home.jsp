@@ -260,7 +260,7 @@ desired effect
                     </a>
                 </li>
                 <li id="sourceli">
-                    <a href="/pages/data.html" target="contentFrame">
+                    <a href="/pages/worklist.jsp" target="contentFrame">
                         <i class="fa fa-file-word-o"></i>
                         <span>我的资源</span>
                     </a>
