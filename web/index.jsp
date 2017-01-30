@@ -2,13 +2,17 @@
 <html>
 
     <head>
-
-        <base href="/">
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>登录</title>
+
+        <%
+            String path = request.getContextPath();
+            String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+        %>
+
+        <base href="<%=path%>/">
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -64,7 +68,7 @@
 
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="/user/login.do" method="post" class="login-form">
+			                    <form role="form" action="user/login.do" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" name="username" value="${user.username}" placeholder="用户名..." class="form-username form-control" id="form-username">

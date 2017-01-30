@@ -1,0 +1,51 @@
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<base href="<%=path%>/">
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="ionicons-2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="adminlte/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="adminlte/css/skins/_all-skins.min.css">
+<!-- daterange picker -->
+<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+
+
+<style>
+    .progress {
+        position: relative;
+        margin-left: 0px;
+        margin-top: 0px;
+        width: 200px;
+        padding: 1px;
+        border-radius: 3px;
+        display: none
+    }
+
+    .bar {
+        background-color: green;
+        display: block;
+        width: 0%;
+        height: 20px;
+        border-radius: 3px;
+    }
+
+    .percent {
+        position: absolute;
+        height: 20px;
+        display: inline-block;
+        top: 3px;
+        left: 2%;
+        color: #fff
+    }
+</style>

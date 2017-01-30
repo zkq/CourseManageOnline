@@ -11,6 +11,10 @@ import javax.servlet.http.HttpSession;
  */
 public interface ResourceService {
 
+    boolean getMyCreats(ModelMap model, HttpSession session);
+
+    boolean getMyDownloads(ModelMap model, HttpSession session);
+
     boolean add(ModelMap model, HttpSession session, Resource resource, MultipartFile file);
 
     boolean newEdit(ModelMap model, HttpSession session, String cid);
@@ -20,4 +24,8 @@ public interface ResourceService {
     boolean getAllByCid(ModelMap model, String cid);
 
     boolean delete(ModelMap model, String id);
+
+    boolean getByCidSid(ModelMap model, HttpSession session, String cid) ;
+
+    boolean recordDownload(ModelMap model, HttpSession session, String resmd5);
 }

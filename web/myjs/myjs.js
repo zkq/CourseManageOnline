@@ -98,7 +98,7 @@ function ajaxsubmit(who, refreshparent, resetform) {
 }
 
 
-function ajaxurl(url, feedback, refreshparent) {
+function ajaxurl(url, feedback, refreshparent, refreshself) {
     $.ajax({
         type: "POST",
         url: url,
@@ -113,7 +113,7 @@ function ajaxurl(url, feedback, refreshparent) {
                 
                 if(refreshparent)
                     window.open("/pages/home.jsp", "_parent");
-                else
+                else if(refreshself)
                     location.reload();
             }else{
                 alert(data);
@@ -121,3 +121,17 @@ function ajaxurl(url, feedback, refreshparent) {
         }
     });
 }
+
+var currentlist = $("#profileli");
+var listclick = function(){
+    if($(this).is(currentlist))
+        return;
+    $(this).addClass("active");
+    currentlist.removeClass("active");
+    currentlist = $(this);
+};
+$("#profileli").click(listclick);
+$("#sourceli").click(listclick);
+$("#classli").click(listclick);
+$("#classopli").click(listclick);
+$("#msgli").click(listclick);

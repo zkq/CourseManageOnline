@@ -1,7 +1,10 @@
 package service.impl;
 
+import dao.ConcernDAO;
 import dao.CourseDAO;
+import dao.MessageDAO;
 import entity.Course;
+import entity.Message;
 import entity.Selectc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,10 @@ public class CourseServiceImpl implements CourseService {
 
     @Autowired
     CourseDAO courseDAO;
+    @Autowired
+    ConcernDAO concernDAO;
+    @Autowired
+    MessageDAO messageDAO;
 
     public void addErrMsg(ModelMap model, String msg) {
         model.addAttribute(Names.ERR_TAG, msg);
@@ -38,10 +45,24 @@ public class CourseServiceImpl implements CourseService {
         while (courseDAO.codeExist(code = GenerateCode.randomCode(5))) ;
 
         course.setCode(code);
-        course.setCreattime(new Date());
+        Date addTime = new Date();
+        course.setCreattime(addTime);
         course.setTid(session.getAttribute(Names.ROLE_ID).toString());
         courseDAO.add(course);
 
+        //添加课程发出通知
+        String tid = session.getAttribute("roleid").toString();
+        List<String> sids = concernDAO.getAllId(tid);
+        for (String sid : sids) {
+            Message message = new Message();
+            message.setSid(sid);
+            message.setTid(tid);
+            message.setActiontype("1");
+            message.setActiontime(addTime);
+            message.setContent(course.getName());
+            message.setDeleted(false);
+            messageDAO.add(message);
+        }
         return true;
     }
 
@@ -101,11 +122,10 @@ public class CourseServiceImpl implements CourseService {
     }
 
 
-
     public boolean join(ModelMap model, HttpSession session, String id) {
         String roleid = session.getAttribute("roleid").toString();
         Course course = courseDAO.getById(id);
-        if(courseDAO.hasJoined(roleid, course.getCid())){
+        if (courseDAO.hasJoined(roleid, course.getCid())) {
             addErrMsg(model, "已经加入该课程");
             return false;
         }

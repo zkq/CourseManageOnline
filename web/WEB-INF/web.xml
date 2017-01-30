@@ -21,7 +21,7 @@
     </session-config>
     <error-page>
         <error-code>404</error-code>
-        <location>/pages/404.html</location>
+        <location>/pages/404.jsp</location>
     </error-page>
 
     <!--定义一个控制器 -->

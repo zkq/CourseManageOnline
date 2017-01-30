@@ -9,19 +9,8 @@
     <title>主页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
-    <link rel="stylesheet" href="/adminlte/css/skins/_all-skins.min.css">
+
+    <%@include file="css.html"%>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,7 +46,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="/pages/home.jsp" class="logo">
+        <a href="pages/home.jsp" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>CM</b>OL</span>
             <!-- logo for regular state and mobile devices -->
@@ -73,117 +62,19 @@ desired effect
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <!-- Menu toggle button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你有4个通知</li>
-                            <li>
-                                <!-- inner menu: contains the messages -->
-                                <ul class="menu">
-                                    <li><!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <!-- User Image -->
-                                                <img src="../adminlte/img/user2-160x160.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <!-- Message title and timestamp -->
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <!-- The message -->
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                </ul>
-                                <!-- /.menu -->
-                            </li>
-                            <li class="footer"><a href="#">查看所有</a></li>
-                        </ul>
-                    </li>
-                    <!-- /.messages-menu -->
-
-                    <!-- Notifications Menu -->
-                    <li class="dropdown notifications-menu">
-                        <!-- Menu toggle button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-file-word-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你下载了10个资源</li>
-                            <li>
-                                <!-- Inner Menu: contains the notifications -->
-                                <ul class="menu">
-                                    <li><!-- start notification -->
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <!-- end notification -->
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">查看所有</a></li>
-                        </ul>
-                    </li>
-                    <!-- Tasks Menu -->
-                    <li class="dropdown tasks-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">你加入了9个课程</li>
-                            <li>
-                                <!-- Inner menu: contains the tasks -->
-                                <ul class="menu">
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <!-- Task title and progress text -->
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <!-- The progress bar -->
-                                            <div class="progress xs">
-                                                <!-- Change the css width attribute to simulate progress -->
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                     aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">查看所有</a>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="../adminlte/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="adminlte/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">${user.username}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="../adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
                                     最近登录时间
@@ -193,18 +84,14 @@ desired effect
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="/pages/myprofile.jsp" target="contentFrame"
+                                    <a href="pages/myprofile.jsp" target="contentFrame"
                                        class="btn btn-default btn-flat">个人资料</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="/user/logout.do" class="btn btn-default btn-flat">退出系统</a>
+                                    <a href="user/logout.do" class="btn btn-default btn-flat">退出系统</a>
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
@@ -219,7 +106,7 @@ desired effect
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>${user.username}</p>
@@ -234,7 +121,7 @@ desired effect
                     <input type="text" id="q" class="form-control" placeholder="搜索用户...">
               <span class="input-group-btn">
                 <button type="button" name="search" id="search-btn" class="btn btn-flat"
-                        onclick='$("#contentFrame").attr("src", "/role/search.do?name=" + $("#q").val());'><i
+                        onclick='$("#contentFrame").attr("src", "role/search.do?name=" + $("#q").val());'><i
                         class="fa fa-search"></i>
                 </button>
               </span>
@@ -245,30 +132,29 @@ desired effect
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
                 <li class="header">功能列表</li>
-                <!-- Optionally, you can add icons to the links -->
-
-                <li id="profileli" class="active">
-                    <a href="/pages/myprofile.jsp" target="contentFrame">
-                        <i class="fa fa-address-card-o"></i>
-                        <span>个人资料</span>
+                <li class="active" id="profileli">
+                    <a href="pages/myprofile.jsp" target="contentFrame">
+                        <i class="fa fa-credit-card"></i>
+                        <span>我的资料</span>
                     </a>
                 </li>
-                <li id="msgli">
-                    <a href="/pages/timeline.jsp" target="contentFrame">
-                        <i class="fa fa-envelope-o"></i>
-                        <span>我的通知</span>
-                    </a>
-                </li>
+                <c:if test="${type == 2}">
+                    <li id="msgli">
+                        <a href="message/my.do" target="contentFrame">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>我的通知</span>
+                        </a>
+                    </li>
+                </c:if>
                 <li id="sourceli">
-                    <a href="/pages/worklist.jsp" target="contentFrame">
+                    <a href="resource/my.do" target="contentFrame">
                         <i class="fa fa-file-word-o"></i>
                         <span>我的资源</span>
                     </a>
                 </li>
-
                 <c:if test="${role.type == '1'}">
                     <li id="classopli">
-                        <a href="/pages/addclass.jsp" target="contentFrame">
+                        <a href="pages/addclass.jsp" target="contentFrame">
                             <i class="fa fa-plus-square-o"></i>
                             <span>开设课程</span>
                         </a>
@@ -276,7 +162,7 @@ desired effect
                 </c:if>
                 <c:if test="${role.type == '2'}">
                     <li id="classopli">
-                        <a href="/pages/searchcourse.html" target="contentFrame">
+                        <a href="pages/searchcourse.jsp" target="contentFrame">
                             <i class="fa fa-arrow-circle-o-down"></i>
                             <span>搜索课程</span>
                         </a>
@@ -284,7 +170,7 @@ desired effect
                 </c:if>
 
                 <li id="classli" class="treeview">
-                    <a href="/course/list.do" target="contentFrame">
+                    <a href="course/list.do" target="contentFrame">
                         <i class="fa fa-flag-o"></i>
                         <span>我的课程</span>
                     </a>
@@ -297,26 +183,7 @@ desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <!--<section class="content-header">
-          <h1>
-            Page Header
-            <small>Optional description</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol>
-        </section>-->
-
-        <!-- Main content -->
-        <!--  <section class="content">
-          <!--   Your Page Content Here -->
-
-        <!-- </section>-->
-        <!-- /.content -->
-
-        <iframe name="contentFrame" src="/pages/myprofile.jsp"
+        <iframe name="contentFrame" src="pages/myprofile.jsp"
                 id="contentFrame" width="100%" height="100%"
                 marginwidth="0" marginheight="0" frameborder="0">
         </iframe>
@@ -333,97 +200,8 @@ desired effect
         <strong>Copyright &copy; 2017 <a href="#">朱科潜</a>.</strong> All rights reserved.
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                <span class="pull-right-container">
-                  <span class="label label-danger pull-right">70%</span>
-                </span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/js/app.min.js"></script>
-<!-- List click operation -->
-<script src="/adminlte/js/list.js"></script>
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+<%@include file="javascript.html"%>
 </body>
 </html>

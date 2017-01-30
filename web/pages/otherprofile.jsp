@@ -8,17 +8,9 @@
     <title>个人中心</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/adminlte/css/skins/_all-skins.min.css">
+
+
+    <%@include file="css.html"%>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,7 +44,7 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                 src="/adminlte/img/user4-128x128.jpg" alt="User profile picture">
+                                 src="adminlte/img/user4-128x128.jpg" alt="User profile picture">
 
                             <h3 class="profile-username text-center">${otheruser.username}</h3>
 
@@ -74,10 +66,12 @@
                             </ul>
                             <c:if test="${otherrole.type == '1'}">
                                 <button type="button" class="btn btn-primary btn-block"
-                                        onclick='ajaxurl("/concern/toggle.do?id=${otherrole.roleid}", false)'>
+                                        onclick='ajaxurl("concern/toggle.do?id=${otherrole.roleid}", false, false, true)'>
                                     <b id="concernText">
-                                        <c:if test="${concerned}">取消关注</c:if>
-                                        <c:if test="${!concerned}">关注ta</c:if>
+                                        <c:if test="${type == 2}">
+                                            <c:if test="${concerned}">取消关注</c:if>
+                                            <c:if test="${!concerned}">关注ta</c:if>
+                                        </c:if>
                                     </b>
                                 </button>
                             </c:if>
@@ -148,17 +142,6 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/adminlte/js/demo.js"></script>
-<script src="/myjs/myjs.js"></script>
+<%@include file="javascript.html"%>
 </body>
 </html>

@@ -8,17 +8,9 @@
     <title>个人中心</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/adminlte/css/skins/_all-skins.min.css">
+
+
+    <%@include file="css.html"%>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +29,7 @@
                 个人资料
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
+                <li><a href="pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
                 <li class="active">个人资料</li>
             </ol>
         </section>
@@ -52,7 +44,7 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                 src="/adminlte/img/user4-128x128.jpg" alt="User profile picture">
+                                 src="adminlte/img/user4-128x128.jpg" alt="User profile picture">
 
                             <h3 class="profile-username text-center">${user.username}</h3>
 
@@ -64,7 +56,7 @@
                                 <li class="list-group-item">
                                     <b><c:if test="${role.type == '1'}">我的粉丝</c:if>
                                         <c:if test="${role.type == '2'}">我关注的</c:if>
-                                    </b> <a class="pull-right" href="/concern/all.do">${concerncnt}</a>
+                                    </b> <a class="pull-right" href="concern/all.do">${concerncnt}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b><c:if test="${role.type == '1'}">我的同事</c:if>
@@ -134,7 +126,7 @@
                             <!-- /.box -->
 
                             <div class="tab-pane" id="settings">
-                                <form class="form-horizontal" id="form" method="post" action="/role/update.do">
+                                <form class="form-horizontal" id="form" method="post" action="role/update.do">
                                     <div class="form-group">
                                         <label for="inputName" class="col-sm-2 control-label">真实姓名</label>
 
@@ -220,10 +212,7 @@
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="button"
-                                                    onclick='ajaxsubmit(this, false, false)'
-                                                    class="btn btn-danger">提交
-                                            </button>
+                                            <button type="button" onclick='ajaxsubmit(this, false, false)' class="btn btn-danger">提交</button>
                                         </div>
                                     </div>
                                 </form>
@@ -244,18 +233,6 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/adminlte/js/demo.js"></script>
-<script src="/plugins/jquery-form/jquery.form.js"></script>
-<script src="/myjs/myjs.js"></script>
+<%@include file="javascript.html"%>
 </body>
 </html>

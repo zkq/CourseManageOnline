@@ -8,21 +8,8 @@
     <title>编辑作业</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/adminlte/css/skins/_all-skins.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
-    <!-- bootstrap datepicker -->
-    <link rel="stylesheet" href="/plugins/datepicker/datepicker3.css">
+
+    <%@include file="css.html"%>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +28,7 @@
                 ${title}作业
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
+                <li><a href="pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
                 <li>我的课程</li>
                 <li>${coursename}</li>
                 <li class="active">${title}作业</li>
@@ -61,7 +48,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="/task/add.do">
+                        <form role="form" method="post" action="task/add.do">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="title">作业标题</label>
@@ -91,7 +78,7 @@
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false, false)'>提交
+                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false, true)'>提交
                                 </button>
                                 <button type="reset" class="btn btn-danger">重置</button>
                             </div>
@@ -112,23 +99,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/adminlte/js/demo.js"></script>
-<!-- bootstrap datepicker -->
-<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- date-range-picker -->
-<script src="/plugins/daterangepicker/moment.min.js"></script>
-<script src="/plugins/daterangepicker/daterangepicker.js"></script>
-<script src="/myjs/myjs.js"></script>
-
+<%@include file="javascript.html"%>
 <script>
     //Date picker
     $('#datepick').datepicker({

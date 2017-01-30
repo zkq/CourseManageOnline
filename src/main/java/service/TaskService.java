@@ -3,6 +3,8 @@ package service;
 import entity.Task;
 import org.springframework.ui.ModelMap;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by Flyme on 2017/1/25.
  */
@@ -17,5 +19,5 @@ public interface TaskService {
 
     boolean oldEdit(ModelMap model, String id);
 
-    boolean add(ModelMap model, Task task);
+    boolean add(ModelMap model, HttpSession session, Task task);
 }

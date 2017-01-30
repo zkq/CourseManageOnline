@@ -8,16 +8,8 @@
     <title>课程</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+
+    <%@include file="css.html"%>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,7 +30,7 @@
             </h1>
 
             <ol class="breadcrumb">
-                <li><a href="/pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
+                <li><a href="pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
                 <li class="active">课程详情</li>
             </ol>
         </section>
@@ -52,7 +44,7 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                 src="/adminlte/img/photo1.png" alt="course picture">
+                                 src="adminlte/img/photo1.png" alt="course picture">
 
                             <h3 class="profile-username text-center">${courseDetail.name}</h3>
 
@@ -63,17 +55,17 @@
                             <c:if test="${type == 2}">
                                 <c:if test="${courseDetail.hasjoined}">
                                     <button class="btn btn-danger btn-block"
-                                            onclick='ajaxurl("/course/exit.do?id=${courseDetail.cid}", false, false)'>
+                                            onclick='ajaxurl("course/exit.do?id=${courseDetail.cid}", false, false, true)'>
                                         退出课程
                                     </button>
                                     <button class="btn btn-primary btn-block"
-                                            onclick='window.open("/resource/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
+                                            onclick='window.open("resource/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
                                         分享资源
                                     </button>
                                 </c:if>
                                 <c:if test="${!courseDetail.hasjoined}">
                                     <button class="btn btn-primary btn-block"
-                                            onclick='ajaxurl("/course/join.do?id=${courseDetail.cid}", false, false)'>
+                                            onclick='ajaxurl("course/join.do?id=${courseDetail.cid}", false, false, true)'>
                                         加入课程
                                     </button>
                                 </c:if>
@@ -83,11 +75,11 @@
                                     您于<fmt:formatDate value="${courseDetail.createdate}" type="date"/>创建该课程
                                 </div>
                                 <button class="btn btn-danger btn-block"
-                                        onclick='window.open("/task/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
+                                        onclick='window.open("task/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
                                     发布作业
                                 </button>
                                 <button class="btn btn-primary btn-block"
-                                        onclick='window.open("/resource/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
+                                        onclick='window.open("resource/newedit.do?cid=${courseDetail.cid}", "contentFrame")'>
                                     分享资源
                                 </button>
                             </c:if>
@@ -96,7 +88,7 @@
                                 <li class="list-group-item">
                                     <b>主讲教师 </b>
                                     <a class="pull-right"
-                                       href="/role/profile.do?id=${courseDetail.teacherid}">${courseDetail.teachername}</a>
+                                       href="role/profile.do?id=${courseDetail.teacherid}">${courseDetail.teachername}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>加入码</b>
@@ -145,24 +137,24 @@
                                                 <div style="font-size: 20px">作业${state.index + 1} &nbsp;
                                                     <span style="color: yellow">${item.title}</span> &nbsp;
                                                     <c:if test="${type == 2 && !donelist.contains(item.taskid)}">
-                                                        <a href="/work/newedit.do?taskid=${item.taskid}"
+                                                        <a href="work/newedit.do?taskid=${item.taskid}"
                                                            style="font-size: 20px">
                                                             <button class="btn btn-danger">提交作业</button>
                                                         </a>
                                                     </c:if>
                                                     <c:if test="${type == 2 && donelist.contains(item.taskid)}">
-                                                        <a href="/work/oldedit.do?taskid=${item.taskid}"
+                                                        <a href="work/oldedit.do?taskid=${item.taskid}"
                                                            style="font-size: 20px">
                                                             <button class="btn btn-danger">修改作业</button>
                                                         </a>
                                                     </c:if>
                                                     <c:if test="${type == 1}">
-                                                        <a href="/task/oldedit.do?id=${item.taskid}"
+                                                        <a href="task/oldedit.do?id=${item.taskid}"
                                                            style="font-size: 20px">
                                                             <button class="btn bg-yellow">修改</button>
                                                         </a>
 
-                                                        <span onclick='if(window.confirm("确认删除？"))ajaxurl("/task/delete.do?id=${item.taskid}", true, false)'>
+                                                        <span onclick='if(window.confirm("确认删除？"))ajaxurl("task/delete.do?id=${item.taskid}", false, false, true)'>
                                                             <i class="ion ion-android-delete"></i>
                                                         </span>
                                                     </c:if>
@@ -177,7 +169,7 @@
                                             <div class="icon">
                                                 <i class="ion ion-bookmark"></i>
                                             </div>
-                                            <a href="/task/worklist.do?id=${item.taskid}" class="small-box-footer">
+                                            <a href="task/worklist.do?id=${item.taskid}" class="small-box-footer">
                                                 查看所有提交 <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                         </div>
@@ -193,23 +185,30 @@
                                             <div class="inner">
                                                 <div style="font-size: 20px">
                                                     资源${state2.index + 1} &nbsp;
-                                                    <a href="/resource/oldedit.do?rid=${item2.rid}"
-                                                       style="font-size: 20px">
-                                                        <button class="btn bg-red">修改</button>
-                                                    </a>
-
-                                                        <span onclick='if(window.confirm("确认删除？"))ajaxurl("/resource/delete.do?id=${item2.rid}", true, false)'>
+                                                    <c:if test="${myreslist.contains(item2.rid)}">
+                                                        <a href="resource/oldedit.do?rid=${item2.rid}"
+                                                           style="font-size: 20px">
+                                                            <button class="btn bg-red">修改</button>
+                                                        </a>
+                                                        <span onclick='if(window.confirm("确认删除？"))ajaxurl("resource/delete.do?id=${item2.rid}", false, false, true)'>
                                                             <i class="ion ion-android-delete"></i>
                                                         </span>
+                                                    </c:if>
                                                 </div>
                                                 <div>
-                                                    <a href="/resource/download.do?resourcemd5=${item2.resourcemd5}&resourcename=${item2.resourcename}">${item2.resourcename}</a>
+                                                    <a href="resource/download.do?resourcemd5=${item2.resourcemd5}&resourcename=${item2.resourcename}">${item2.resourcename}</a>
                                                 </div>
                                                 <div>
-                                                    创建时间<fmt:formatDate value="${item2.creattime}" type="both"/>
+                                                    创建人：${item2.rolename} &nbsp;&nbsp;
+                                                    创建时间：<fmt:formatDate value="${item2.creattime}" type="both"/>&nbsp;
                                                 </div>
                                                 <br/>
-                                                <div style="font-size: 20px">${item2.introduction}</div>
+                                                <c:if test="${item2.introduction == ''}">
+                                                    <div style="font-size: 20px">暂无资源简介</div>
+                                                </c:if>
+                                                <c:if test="${!(item2.introduction == '')}">
+                                                    <div style="font-size: 20px">资源简介：${item2.introduction}</div>
+                                                </c:if>
                                             </div>
                                             <div class="icon">
                                                 <i class="ion ion-bookmark"></i>
@@ -238,19 +237,6 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- Slimscroll -->
-<script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/adminlte/js/demo.js"></script>
-<script src="/myjs/myjs.js"></script>
+<%@include file="javascript.html"%>
 </body>
 </html>

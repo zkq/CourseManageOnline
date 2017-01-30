@@ -8,17 +8,8 @@
     <title>个人中心</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/ionicons-2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/adminlte/css/skins/_all-skins.min.css">
+
+    <%@include file="css.html"%>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +28,7 @@
                 课程列表
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
+                <li><a href="pages/home.jsp" target="_top"><i class="fa fa-dashboard"></i> 主页</a></li>
                 <li class="active">课程列表</li>
             </ol>
         </section>
@@ -64,7 +55,7 @@
                         <div class="icon">
                             <i class="ion ion-bookmark"></i>
                         </div>
-                        <a href="/course/detail.do?id=${item.id}" class="small-box-footer">
+                        <a href="course/detail.do?id=${item.id}" class="small-box-footer">
                             课程详细信息 <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -79,16 +70,6 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery-2.2.3/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/adminlte/js/demo.js"></script>
+<%@include file="javascript.html"%>
 </body>
 </html>

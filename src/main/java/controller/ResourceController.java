@@ -39,6 +39,14 @@ public class ResourceController extends BaseController {
         }
     }
 
+    @RequestMapping("/my.do")
+    public String my(ModelMap model, HttpSession session){
+        initProxy();
+        resourceServiceProxy.getMyCreats(model, session);
+        resourceServiceProxy.getMyDownloads(model, session);
+        return "myresourcelist";
+    }
+
     @RequestMapping("/delete.do")
     @ResponseBody
     public String delete(ModelMap model, HttpSession session, @RequestParam String id){
@@ -75,12 +83,14 @@ public class ResourceController extends BaseController {
 
     //文件的下载
     @RequestMapping("/download.do")
-    public ResponseEntity<byte[]> testResponseEntity(HttpSession session, String resourcemd5, String resourcename) throws IOException {
+    public ResponseEntity<byte[]> testResponseEntity(ModelMap model, HttpSession session, String resourcemd5, String resourcename) throws IOException {
+        initProxy();
+        resourceServiceProxy.recordDownload(model, session, resourcemd5);
 
         byte[] body=null;
         ServletContext servletContext=session.getServletContext();
         ///files/abc.txt：所要下载文件的地址
-        InputStream in=servletContext.getResourceAsStream("/files/" + resourcemd5);
+        InputStream in=servletContext.getResourceAsStream("/resources/" + resourcemd5);
         body=new byte[in.available()];
         in.read(body);
 

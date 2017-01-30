@@ -1,8 +1,11 @@
 package service.impl;
 
+import dao.ConcernDAO;
 import dao.CourseDAO;
+import dao.MessageDAO;
 import dao.TaskDAO;
 import entity.Course;
+import entity.Message;
 import entity.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,7 @@ import service.TaskService;
 import util.Names;
 import util.WorkAbstract;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -26,6 +30,10 @@ public class TaskServiceImpl implements TaskService {
     TaskDAO taskDAO;
     @Autowired
     CourseDAO courseDAO;
+    @Autowired
+    ConcernDAO concernDAO;
+    @Autowired
+    MessageDAO messageDAO;
 
     public void addErrMsg(ModelMap model, String msg) {
         model.addAttribute(Names.ERR_TAG, msg);
@@ -78,8 +86,23 @@ public class TaskServiceImpl implements TaskService {
         return true;
     }
 
-    public boolean add(ModelMap model, Task task) {
+    public boolean add(ModelMap model, HttpSession session, Task task) {
         taskDAO.addOrUpdate(task);
+
+        //发布作业发出通知
+        String tid = session.getAttribute("roleid").toString();
+        List<String> sids = concernDAO.getAllId(tid);
+        for (String sid : sids) {
+            Message message = new Message();
+            message.setSid(sid);
+            message.setTid(tid);
+            message.setActiontype("2");
+            message.setActiontime(task.getCreattime());
+            message.setContent(task.getTitle());
+            message.setDeleted(false);
+            messageDAO.add(message);
+        }
+
         return true;
     }
 

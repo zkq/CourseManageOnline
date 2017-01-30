@@ -66,7 +66,7 @@ public class TaskController extends BaseController{
         }
         task.setCreattime(new Date());
         task.setDeleted(false);
-        return responseBodyWrite(taskServiceProxy.add(model, task), model);
+        return responseBodyWrite(taskServiceProxy.add(model, session, task), model);
     }
 
     @RequestMapping(path = "/worklist.do")

@@ -112,6 +112,7 @@ public class CourseController extends BaseController {
         workServiceProxy.getDone(model, session, id);
         //资源列表
         resourceServiceProxy.getAllByCid(model, id);
+        resourceServiceProxy.getByCidSid(model, session, id);
         return "coursedetail";
     }
 
