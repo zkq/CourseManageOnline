@@ -10,7 +10,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
-    <%@include file="css.html"%>
+    <%@include file="css.html" %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,7 +61,20 @@
                                         <td>
                                             <a href="resource/download.do?resourcemd5=${item.resourcemd5}&resourcename=${item.resourcename}">${item.resourcename}</a>
                                         </td>
-                                        <td>${item.type}</td>
+                                        <td>
+                                            <c:if test="${item.type == 1}">
+                                                图片
+                                            </c:if>
+                                            <c:if test="${item.type == 2}">
+                                                视频
+                                            </c:if>
+                                            <c:if test="${item.type == 3}">
+                                                文档
+                                            </c:if>
+                                            <c:if test="${item.type == 4}">
+                                                其他
+                                            </c:if>
+                                        </td>
                                         <td>${item.coursename}</td>
                                         <td><fmt:formatDate value="${item.creattime}" type="both"/></td>
                                     </tr>
@@ -102,7 +115,20 @@
                                         <td>
                                             <a href="resource/download.do?resourcemd5=${item.resourcemd5}&resourcename=${item.resourcename}">${item.resourcename}</a>
                                         </td>
-                                        <td>${item.type}</td>
+                                        <td>
+                                            <c:if test="${item.type == 1}">
+                                                图片
+                                            </c:if>
+                                            <c:if test="${item.type == 2}">
+                                                视频
+                                            </c:if>
+                                            <c:if test="${item.type == 3}">
+                                                文档
+                                            </c:if>
+                                            <c:if test="${item.type == 4}">
+                                                其他
+                                            </c:if>
+                                        </td>
                                         <td>${item.coursename}</td>
                                         <td>${item.rolename}</td>
                                         <td><fmt:formatDate value="${item.creattime}" type="both"/></td>
@@ -127,7 +153,7 @@
 
 </div>
 <!-- ./wrapper -->
-<%@include file="javascript.html"%>
+<%@include file="javascript.html" %>
 <!-- page script -->
 <script>
     $(function () {

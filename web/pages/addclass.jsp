@@ -89,7 +89,7 @@
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false, true)'>提交</button>
+                                <button type="button" class="btn btn-primary" onclick='ajaxsubmit(this, false, false, true)'>提交</button>
                                 <button type="reset" class="btn btn-danger">重置</button>
                             </div>
                         </form>

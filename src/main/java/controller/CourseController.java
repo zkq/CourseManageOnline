@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.*;
+import util.CourseDetail;
 import util.ServiceInvocation;
 
 import javax.servlet.http.HttpSession;
@@ -120,6 +121,14 @@ public class CourseController extends BaseController {
     public String search(ModelMap model, HttpSession session, @RequestParam String code) {
         initProxy();
         courseServiceProxy.getDetail(model, session, null, code);
+        //作业列表
+        CourseDetail course = (CourseDetail) model.get("courseDetail");
+        String id = course.getCid();
+        taskServiceProxy.getAllByCid(model, id);
+        workServiceProxy.getDone(model, session, id);
+        //资源列表
+        resourceServiceProxy.getAllByCid(model, id);
+        resourceServiceProxy.getByCidSid(model, session, id);
         return "coursedetail";
     }
 

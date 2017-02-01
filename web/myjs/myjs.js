@@ -29,7 +29,7 @@ function ajaxfile(who, refreshparent, requirefile) {
             alert("请选择一个资源");
             return;
         }
-        ajaxsubmit(who, refreshparent, false);
+        ajaxsubmit(who, refreshparent, false, false);
         return;
     }
     
@@ -78,7 +78,7 @@ function ajaxfile(who, refreshparent, requirefile) {
     });
 }
 
-function ajaxsubmit(who, refreshparent, resetform) {
+function ajaxsubmit(who, refreshparent, refreshself, resetform) {
     var currentform = $(who.form);
     currentform.ajaxSubmit({
         resetForm : resetform,
@@ -90,6 +90,8 @@ function ajaxsubmit(who, refreshparent, resetform) {
                 alert("操作成功");
                 if(refreshparent)
                     window.open("/pages/home.jsp", "_parent");
+                else if(refreshself)
+                    location.reload();
             }else{
                 alert(data);
             }

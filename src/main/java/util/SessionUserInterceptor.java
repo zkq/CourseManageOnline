@@ -28,11 +28,11 @@ public class SessionUserInterceptor extends HandlerInterceptorAdapter {
         }
 
         //response.sendRedirect("/index.jsp");
-        //return false;
+        String path = request.getContextPath() + "/index.jsp";
         PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<script>");
-        out.println("window.open ('/index.jsp','_top')");
+        out.println("window.open ('"+ path + "','_top')");
         out.println("</script>");
         out.println("</html>");
         return false;

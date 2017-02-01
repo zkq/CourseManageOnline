@@ -109,6 +109,7 @@
 <script src="plugins/jQuery-1.11.1/jquery-1.11.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="plugins/jQuery-backstretch/jquery.backstretch.min.js"></script>
+<script src="plugins/jQuery-md5/jquery.md5.js"></script>
 <script src="logreg/js/scripts2.js"></script>
 
 <!--[if lt IE 10]>

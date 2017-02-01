@@ -62,12 +62,13 @@ jQuery(document).ready(function() {
             if(password1.length <= 5 || password2.length <= 5){
                 e.preventDefault();
                 alertdiv.show();
-                alertdiv.text("密码长度应该大于5");
+                alertdiv.text("密码长度至少为6");
             }else if(password1 != password2){
                 e.preventDefault();
                 alertdiv.show();
                 alertdiv.text("密码不一致");
             }else{
+                $("#form-password").val($.md5(password1));
                 alertdiv.hide();
             }
 

@@ -63,7 +63,7 @@
                             		<p>请输入您的用户名和密码：</p>
                         		</div>
                         		<div class="form-top-right" style="font-size: medium">
-                                    <a href="register.jsp">新用户注册</a>
+                                    <a href="register.jsp">注册用户</a>
                         		</div>
 
                             </div>
@@ -96,6 +96,7 @@
         <script src="plugins/jQuery-1.11.1/jquery-1.11.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="plugins/jQuery-backstretch/jquery.backstretch.min.js"></script>
+        <script src="plugins/jQuery-md5/jquery.md5.js"></script>
         <script src="logreg/js/scripts.js"></script>
         
         <!--[if lt IE 10]>

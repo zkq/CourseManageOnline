@@ -47,7 +47,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="/work/comment.do">
+                        <form method="post" action="work/comment.do">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="title">标题</label>
@@ -81,7 +81,7 @@
 
                                 <div class="box-footer">
                                     <button type="button" class="btn btn-primary" id="submitbtn"
-                                            onclick="ajaxsubmit(this, false, false)">提交
+                                            onclick="ajaxsubmit(this, false, false, false)">提交
                                     </button>
                                     <button type="reset" class="btn btn-danger" id="resetbtn">重置</button>
                                 </div>

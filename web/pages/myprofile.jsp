@@ -58,11 +58,6 @@
                                         <c:if test="${role.type == '2'}">我关注的</c:if>
                                     </b> <a class="pull-right" href="concern/all.do">${concerncnt}</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <b><c:if test="${role.type == '1'}">我的同事</c:if>
-                                        <c:if test="${role.type == '2'}">我的同学</c:if>
-                                    </b> <a class="pull-right">${mate}</a>
-                                </li>
                             </ul>
                         </div>
                         <!-- /.box-body -->
@@ -140,7 +135,7 @@
 
                                         <div class="col-sm-10">
                                             <input type="text" name="sex" value="${role.sex}" class="form-control"
-                                                   id="inputSex" placeholder="男/女">
+                                                   id="inputSex">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -212,7 +207,7 @@
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="button" onclick='ajaxsubmit(this, false, false)' class="btn btn-danger">提交</button>
+                                            <button type="button" onclick='ajaxsubmit(this, false, true, false)' class="btn btn-danger">提交</button>
                                         </div>
                                     </div>
                                 </form>

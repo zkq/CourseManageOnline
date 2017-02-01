@@ -10,7 +10,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
-    <%@include file="css.html"%>
+    <%@include file="css.html" %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,22 +56,16 @@
                                 <li class="list-group-item">
                                     <b><c:if test="${otherrole.type == '1'}">ta的粉丝</c:if>
                                         <c:if test="${otherrole.type == '2'}">ta关注的</c:if>
-                                    </b> <a class="pull-right">${concerncnt}</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b><c:if test="${otherrole.type == '1'}">ta的同事</c:if>
-                                        <c:if test="${otherrole.type == '2'}">ta的同学</c:if>
-                                    </b> <a class="pull-right">${mate}</a>
+                                    </b>
+                                    <div class="pull-right">${concerncnt}</div>
                                 </li>
                             </ul>
-                            <c:if test="${otherrole.type == '1'}">
+                            <c:if test="${otherrole.type == '1' && type == '2'}">
                                 <button type="button" class="btn btn-primary btn-block"
                                         onclick='ajaxurl("concern/toggle.do?id=${otherrole.roleid}", false, false, true)'>
                                     <b id="concernText">
-                                        <c:if test="${type == 2}">
-                                            <c:if test="${concerned}">取消关注</c:if>
-                                            <c:if test="${!concerned}">关注ta</c:if>
-                                        </c:if>
+                                        <c:if test="${concerned}">取消关注</c:if>
+                                        <c:if test="${!concerned}">关注ta</c:if>
                                     </b>
                                 </button>
                             </c:if>
@@ -142,6 +136,6 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- ./wrapper -->
-<%@include file="javascript.html"%>
+<%@include file="javascript.html" %>
 </body>
 </html>

@@ -70,7 +70,7 @@
                                         <button class="btn btn-danger" type="button" onclick='
                                             ajaxurl("message/delete.do?mid=${item.mid}", false, false, false);
                                             //删除该元素
-                                            $(this).parent().parent().remove();
+                                            $(this).parent().parent().parent().remove();
                                             '>删除</button>
                                     </h3>
 
